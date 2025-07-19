@@ -68,12 +68,12 @@ exports.deleteField = async (req,res)=>{
             return res.status(404).json({message:'Field is Not Found'})
         }
     
-        if (field.user.toString !== req.user.id) {
+        if (field.user.toString() !== req.user.id) {
             res.status(401).json({message:"User not authorized"});
         }
-        await field.deleteOne()
-    
-        res.status(200).json({message:"Field Remove"})
+        
+        await field.deleteOne();
+        res.status(200).json({message:"Field Remove"});
     } catch (error) {
         res.status(500).json({error:error.message})
     }

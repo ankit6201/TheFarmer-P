@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db.js')
 const authRouter = require('./routes/authRouter.js')
@@ -10,6 +11,11 @@ dotenv.config()
 connectDB()
 
 const app =  express()
+app.use(cors({
+  origin: 'http://localhost:5173', // Frontend URL
+  credentials: true // If you use cookies, tokens etc.
+}));
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}));
 

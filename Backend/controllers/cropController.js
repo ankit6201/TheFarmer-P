@@ -62,14 +62,14 @@ exports.updateCrop = async (req,res)=>{
 // @access  Private
 
 exports.deleteCrop = async (req,res)=>{
-    const crop = Crop.findById(req.params.id)
+    const crop = await Crop.findById(req.params.id)
 
     if (!crop) {
-        res.status(201).json({message:" Crop  Not Found"})
+      return  res.status(404).json({message:" Crop  Not Found"})
     }
 
     if (crop.user.toString() !== req.user.id) {
-        res.status(404).json({message:"user not Authorized"})
+       return res.status(401).json({message:"user not Authorized"})
     }
 
     await crop.deleteOne()

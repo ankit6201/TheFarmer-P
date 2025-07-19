@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import axios from '../api/axios'
 import { toast } from 'react-toastify';
 
 const Register = () => {
-    const [formdata,setFormData] =useState({
+    const [formData,setFormData] =useState({
        name:"",
        email:"",
        password:"" 
@@ -20,7 +20,7 @@ const Register = () => {
     const handleSubmit = async (e)=>{
         e.preventDefault();
         try {
-            const res = await axios.post('/auth/register',formdata);
+            const res = await axios.post('/auth/register', formData)
             login(res.data)  // Store user & token in context
             toast.success('Registered successfully!')
             navigate('/dashboard')
@@ -35,7 +35,7 @@ const Register = () => {
          <input type="text"
           placeholder='Enter Your Name'
           name='name'
-          value={formdata.name}
+          value={formData.name}
           onChange={handleOnChange}
           required
           />
@@ -44,16 +44,16 @@ const Register = () => {
            type="email" 
            placeholder='write Your Email Email'
            name='email'
-           value={formdata.email}
+           value={formData.email}
            onChange={handleOnChange}
            required
           />
           <br />
            <input
-           type="email" 
+           type="password" 
            placeholder='write Your Password'
            name='password'
-           value={formdata.password}
+           value={formData.password}
            onChange={handleOnChange}
            required
           />
