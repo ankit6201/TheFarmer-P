@@ -31,13 +31,15 @@ const Register = () => {
   return (
     <div>
       <h2>Register</h2>
-      <form action="" onSubmit={handleSubmit}>
+<form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto mt-6">
          <input type="text"
           placeholder='Enter Your Name'
           name='name'
           value={formData.name}
           onChange={handleOnChange}
           required
+          className="w-full p-2 border border-gray-300 rounded"
+
           />
           <br />
           <input
@@ -47,6 +49,8 @@ const Register = () => {
            value={formData.email}
            onChange={handleOnChange}
            required
+          className="w-full p-2 border border-gray-300 rounded"
+
           />
           <br />
            <input
@@ -56,9 +60,14 @@ const Register = () => {
            value={formData.password}
            onChange={handleOnChange}
            required
+           className="w-full p-2 border border-gray-300 rounded"
+
           />
           <br />
-          <button type='submit'>Register</button>
+          <button
+           type='submit'    
+           className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
+>Register</button>
         </form>
     </div>
   )

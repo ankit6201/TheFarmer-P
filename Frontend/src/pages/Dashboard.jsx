@@ -21,6 +21,8 @@ const Dashboard = () => {
        <p>Dashboard content goes here.</p>
        <p><Link to='/fields'>Go To Fields</Link></p>
        <p><Link to='/crops'>Go To Crops</Link></p>
+       <p><Link to="/tasks">Go to Tasks</Link></p>
+
     </div>
   )
 }

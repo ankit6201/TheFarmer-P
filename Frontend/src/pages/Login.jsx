@@ -34,7 +34,7 @@ const Login = () => {
   return (
     <div>
        <h2>Login</h2>
-      <form onSubmit={handleSubmitform}>
+      <form onSubmit={handleSubmitform} className="space-y-4 max-w-md mx-auto mt-6">
         <input
           type="email"
           name="email"
@@ -42,6 +42,7 @@ const Login = () => {
           value={formData.email}
           onChange={handleChange}
           required
+           className="w-full p-2 border border-gray-300 rounded"
         /><br/>
         <input
           type="password"
@@ -50,8 +51,12 @@ const Login = () => {
           value={formData.password}
           onChange={handleChange}
           required
+          className="w-full p-2 border border-gray-300 rounded"
         /><br/>
-        <button type="submit">Login</button>
+        <button 
+        type="submit"     
+        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
+>Login</button>
       </form>
     </div>
   )

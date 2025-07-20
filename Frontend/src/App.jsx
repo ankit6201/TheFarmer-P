@@ -8,11 +8,14 @@ import PrivateRoute from './components/PrivateRoute';
 import Fields from './pages/Fields';
 import './App.css'
 import Crops from './pages/Crops';
+import Tasks from './pages/Tasks';
+import Navbar from './components/Navbar';
 
 
 const App = () => {
   return (
     <BrowserRouter>
+    <Navbar/>
     <div>
       <Routes>
         <Route path='/' element={<h1 style={{color:"black"}}> This is A Home Page</h1>}></Route>
@@ -29,6 +32,14 @@ const App = () => {
           <Route path='/crops' element={<PrivateRoute>
             <Crops/>
           </PrivateRoute>}/>
+
+          <Route path='/tasks' 
+          element ={
+            <PrivateRoute>
+              <Tasks/>
+            </PrivateRoute>
+          }
+          />
       </Routes>
       
       <ToastContainer 
